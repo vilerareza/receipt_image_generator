@@ -495,9 +495,29 @@ def calculate_total_price(items, tax_percent):
     return (subtotal_price, tax, total_price)
 
 
-# Input data
+
+'''Input data'''
 items = food_items
 
+'''Price and payment processing'''
+# Tax
+tax_percent = 13
+# Price
+subtotal_price, tax, total_price = calculate_total_price(items, tax_percent = tax_percent)
+# Payment
+tendered = 100
+payment_method = 'CASH'
+# Change calculation
+change = tendered - total_price
+# String formatting
+subtotal_price = '%.2f' % round(subtotal_price, 2)
+tax = '%.2f' % round(tax,2)
+total_price = '%.2f' % round(total_price, 2)
+tendered = '%.2f' % round(tendered, 2)
+change = '%.2f' % round(change, 2)
+
+
+''' Receipt Image Generation'''
 # Size
 dpi = 180
 mm_pixel_multiplier = 7
@@ -543,23 +563,6 @@ img = Image.new('RGB', image_size, bg_color)
 pen = ImageDraw.Draw(img)
 # Load font
 font = ImageFont.truetype(font_path, size = 24)
-
-'''Price and payment processing'''
-# Tax
-tax_percent = 13
-# Price
-subtotal_price, tax, total_price = calculate_total_price(items, tax_percent = tax_percent)
-# Payment
-tendered = 100
-payment_method = 'CASH'
-# Change calculation
-change = tendered - total_price
-# String formatting
-subtotal_price = '%.2f' % round(subtotal_price, 2)
-tax = '%.2f' % round(tax,2)
-total_price = '%.2f' % round(total_price, 2)
-tendered = '%.2f' % round(tendered, 2)
-change = '%.2f' % round(change, 2)
 
 
 # Inserting logo
