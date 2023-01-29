@@ -565,7 +565,7 @@ class ReceiptGenerator(object):
         # Writing text
         pen.text(xy = (x, y), text = text, font = font, fill = font_color, anchor = 'ra')
         # Writing Tax text
-        text = f'Tax:'
+        text = f'Tax({tax_percent}%):'
         pen.text(xy = (x - 120, y), text = text, font = font, fill = font_color, anchor = 'ra')
 
         '''Total'''
