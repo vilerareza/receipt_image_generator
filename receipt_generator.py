@@ -669,7 +669,7 @@ class ReceiptGenerator(object):
         
         '''Customer sequence'''
         font = ImageFont.truetype(font_path, size = 32)
-        text = f'**  {customer_sequence}  **'[:10]  # Max 10 chars
+        text = f'**  {customer_sequence}  **'[:20]  # Max 10 chars
         # Estimating bounding box
         seq_left, _, seq_right, _ = pen.textbbox((img.size[0]/2, msg_bottom), text = text, font = font)
         seq_width = seq_right - seq_left
